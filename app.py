@@ -2,6 +2,11 @@ import pickle
 import streamlit as st
 import numpy as np
 
+try:
+    import sklearn
+    st.write(f"scikit-learn version: {sklearn.__version__}")
+except ModuleNotFoundError as e:
+    st.error(f"ModuleNotFoundError: {e}")
 # Membaca model
 pokemon_model = pickle.load(open('Pokemon_model.sav','rb'))
 
